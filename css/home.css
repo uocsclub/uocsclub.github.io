@@ -1,0 +1,46 @@
+/*
+ * UOCSClub home.css
+ *
+ *  Home page setup.
+ */
+
+a {
+    text-decoration: underline;
+    color: inherit;
+}
+
+body > .landing {
+
+    display: grid;
+    grid-row-gap: 100px;
+    grid-template-columns: 1fr 800px 1fr;
+    grid-template-rows: 50px 100px 500px;
+}
+
+.landing > nav {
+    grid-column: 1 / 4;
+    grid-row: 1;
+
+    background-color: #666;
+
+    padding: 10px 10px;
+}
+
+.landing > header {
+    grid-column: 2;
+    grid-row: 2;
+
+    text-align: center;
+}
+
+.landing > .blurb {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+nav > a {
+    vertical-align: middle;
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+}
