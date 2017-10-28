@@ -44,3 +44,38 @@ nav > a {
     color: #fff;
     font-size: 25px;
 }
+
+/* The Team Section */
+
+.team {
+    background-color: #660066;
+
+    min-height: 100%;
+
+    display: grid;
+    grid-template-rows: 100px auto;
+    grid-template-columns: 1fr 1000px 1fr;
+}
+
+.team > header {
+    grid-column: 2;
+    grid-row: 1;
+
+    text-align: center;
+}
+
+.team-members {
+    display: flex;
+}
+
+.team-member-profile {
+
+}
+
+.team-member {
+    order: 2;
+}
+
+.team-leader {
+    order: 1;
+}
