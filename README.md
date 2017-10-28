@@ -1,7 +1,5 @@
 # University of Ottawa Computer Science Club
 
-## Introduction
-
 The uscsclub github page.
 
 ## Running Locally
