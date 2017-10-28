@@ -29,4 +29,4 @@ we do, we will update this page.
 
 ## Contributing
 
-If you would like to contribute to the the project see the [contributing guide lines](CONTRIBUTING.md).
+If you would like to contribute to the the project see the [contributing guidelines](CONTRIBUTING.md).
