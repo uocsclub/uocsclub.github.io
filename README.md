@@ -2,11 +2,11 @@
 
 The uscsclub github page.
 
-##Introduction
+## Introduction
 
 
 
-##Running Locally
+## Running Locally
 
 Currently, our site is just basic http server.  As long as your computer
 can run a web server, you can test the site.  Here are a few examples.
@@ -31,6 +31,6 @@ We may switch to using a templating engine for our site, if needed.  When
 we do, we will update this page.
 
 
-##Contributing
+## Contributing
 
 If you would like to contribute to the the project see the [contributing guide lines](CONTRIBUTING.md).
