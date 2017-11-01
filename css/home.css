@@ -24,10 +24,45 @@ body > .landing {
 
 .landing > nav {
     grid-area: nav;
-
     background-color: #666;
+}
 
-    padding: 10px 10px;
+.site-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.site-nav li {
+    vertical-align: middle;
+}
+
+.site-nav a {
+    display: block;
+
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+    text-align: center;
+
+    padding: 10px 16px;
+
+}
+
+.site-nav .nav-home {
+    float: left;
+}
+
+.site-nav .nav-social-media {
+    float: right;
+
+    font-size: 30px;
+    padding-top: 7px;
+}
+
+.site-nav a:hover:not(.active) {
+    background-color: #111;
 }
 
 .landing > header {
@@ -37,13 +72,6 @@ body > .landing {
 
 .landing > .blurb {
     grid-area: blurb;
-}
-
-nav > a {
-    vertical-align: middle;
-    text-decoration: none;
-    color: #fff;
-    font-size: 25px;
 }
 
 /* The Team Section */
