@@ -1,32 +1,18 @@
 # University of Ottawa Computer Science Club
 
-The uscsclub github page.
+The uOCSClub github page.
 
 ## Running Locally
 
-Currently, our site is just basic http server.  As long as your computer
-can run a web server, you can test the site.  Here are a few examples.
-
-If you have Python 3
+Our website is built using Jekyll
 
 ```bash
 cd uocsclub.github.io
-python -m http.server 8000
+bundle install
+bundle exec jekyll serve
 ```
-
-If you have Python 2
-
-```bash
-cd uocsclub.github.io
-python -m SimpleHTTPServer 8000
-```
-
-Then check out your [local server](http://localhost:8000).
-
-We may switch to using a templating engine for our site, if needed.  When
-we do, we will update this page.
-
+Then check out your [local server](http://localhost:4000).
 
 ## Contributing
 
-If you would like to contribute to the the project see the [contributing guidelines](CONTRIBUTING.md).
+If you would like to contribute to the project see the [contributing guidelines](CONTRIBUTING.md).
