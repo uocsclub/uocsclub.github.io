@@ -1,104 +1,94 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>uocsclub</title>
+---
+layout: landing
+---
+                <!-- Banner -->
+                    <section id="banner">
+                        <div class="inner">
+                            <h2>{{ site.title }}</h2>
+                            <p>{{ site.description | markdownify }}</p>
+                        </div>
+                        <a href="#one" class="more scrolly">Learn More</a>
+                    </section>
 
-  <meta charset="utf-8">
+                <!-- One -->
+                    <section id="one" class="wrapper style1 special">
+                        <div class="inner">
+                            <header class="major">
+                                <h2>Who are we?</h2>
+                                <p>We are a group at the University of Ottawa which is dedicated to extracurricular programming and system administration projects. You can find us on Facebook, Twitter, GitHub, and Slack.</p>
+                            </header>
+                            <ul class="icons major">
+                                <li><a href='https://www.facebook.com/uocsclub' target='_blank'><span class="icon fa-facebook major style1"><span class="label">Facebook</span></span></a></li>
+                                <li><a href='https://uocsclub.slack.com' target='_blank'><span class="icon fa-slack major style3"><span class="label">Slack</span></span></a></li>
+                                <li><a href='https://twitter.com/uOCSClub' target='_blank'><span class="icon fa-twitter major style2"><span class="label">Twitter</span></span></a></li>
+                                <li><a href='https://github.com/uOCSClub' target='_blank'><span class="icon fa-github major style3"><span class="label">GitHub</span></span></a></li>
+                            </ul>
+                        </div>
+                    </section>
 
+                <!-- Two -->
+                    <section id="two" class="wrapper alt style2">
+                        <section class="spotlight">
+                            <div class="image"><img src="images/pic01.jpg" alt="" /></div><div class="content">
+                                <h2>CSGames</h2>
+                                <p>
+                                    CS Games 2018 season is about to start, and we need some competitive uOttawa students to join us. We are looking for uOttawa students who love to program and want to push their skills to new limits.
+                                    You haven't heard of CS Games? That's ok. One of the best parts about it is that you don't need any previous hackathon or competition experience.
+                                    <br>
+                                    <br>
+                                    If you are interested in sponsoring our team, please email us at <a href='mailto:CSGames@uOCSClub.ca'>CSGames@uOCSClub.ca</a>
+                                </p>
+                            </div>
+                        </section>
+                    </section>
 
-  <link type="text/css" href="/css/main.css" media="all" rel="stylesheet">
-  <link type="text/css" href="/css/home.css" media="all" rel="stylesheet">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body class="home">
-  <!-- Site Landing Page. -->
-  <section id="landing" class="landing">
-    <nav class="site-nav">
-      <ul>
-        <li><a class="nav-home" href="/">UOCSClub</a></li>
-        <li><a class="nav-social-media" href="https://github.com/uOCSClub"><i class="fa fa-github-square"></i></a></li>
-        <li><a class="nav-social-media" href="https://www.facebook.com/groups/uocsclub"><i class="fa fa-facebook-square"></i></a></li>
-        <li><a class="nav-social-media" href="https://twitter.com/uocsclub"><i class="fa fa-twitter-square"></i></a></li>
-        <li><a class="nav-social-media" href="https://uocsclub.slack.com"><i class="fa fa-slack"></i></a></li>
-      </ul>
-    </nav>
-
-    <header class="site-header">
-      <h1>
-        University of Ottawa Computer Science Club
-      </h1>
-      <p>
-        The competitive hacker club of Canada's university.
-      </p>
-    </header>
-
-    <div class="blurb">
-        <p>
-          CS Games 2018 season is about to start, and we need some competitive
-          uOttawa students to join us.  We are looking for uOttawa students
-          who love to program and want to push their skills to new limits.
-        </p>
-        <p>
-          You haven't heard of <a href="http://2018.csgames.org/">CS Games</a>?
-          That's ok.  One of the best parts about it is that you don't need
-          any previous hackathon or competition experience.
-        </p>
-        <p>
-          If you are interested in trying out for the uOttawa team, please fill
-          out <a href="https://goo.gl/forms/ZnDOqXNBaBjWTED92">this form</a>.
-        </p>
-    </div>
-  </section>
-  <!-- Team section. -->
-  <section id="team-section" class="team-section">
-    <header class="section-header">
-      <h2>The Team</h2>
-      <p>Who's Hacking?</p>
-    </header>
-
-    <div class="team-photo"></div>
-
-    <h3 class="jedi-title">Jedi Council</h3>
-
-    <div class="team-profiles team-leaders">
-      <div class="profile">
-        <img class="profile-pic" src="https://github.com/SuperOxigen.png">
-        <p class="profile-name">Alex</p>
-        <p class="profile-title">Jedi</p>
-        <p class="profile-talent"></p>
-      </div>
-      <div class="profile">
-        <img class="profile-pic" src="https://github.com/NuclearBanane.png">
-        <p class="profile-name">Rodger</p>
-        <p class="profile-title">Yoda</p>
-        <p class="profile-talent"></p>
-      </div>
-      <div class="profile">
-        <img class="profile-pic" src="https://github.com/Abdulwahaab710.png">
-        <p class="profile-name">Abdulwahaab</p>
-        <p class="profile-title">Jedi</p>
-        <p class="profile-talent"></p>
-      </div>
-      <div class="profile">
-        <img class="profile-pic" src="https://github.com/Faeriol.png">
-        <p class="profile-name">Max</p>
-        <p class="profile-title">Jedi</p>
-        <p class="profile-talent"></p>
-      </div>
-      <div class="profile">
-        <img class="profile-pic" src="https://github.com/verandaguy.png">
-        <p class="profile-name">Jules</p>
-        <p class="profile-title">Jedi</p>
-        <p class="profile-talent"></p>
-      </div>
-      <div class="profile">
-        <img class="profile-pic" src="https://github.com/t0xicCode.png">
-        <p class="profile-name">Xavier</p>
-        <p class="profile-title">Jedi</p>
-        <p class="profile-talent"></p>
-      </div>
-    </div>
-  </section>
-</body>
-</html>
+                    <section id="three" class="wrapper style3 special">
+                        <div class="inner">
+                            <header class="major">
+                                <h2>The Team, who's hacking?</h2>
+                                <br>
+                                <h3>Jedi Council</h3>
+                            </header>
+                            <ul class="features">
+                                <li style='text-align: center;'>
+                                    <img src="https://github.com/abdulwahaab710.png" alt="" style='border-radius: 100px; height: 200px;'>
+                                    <h3>Abdulwahaab Ahmed</h3>
+                                    <p>Jedi</p>
+                                </li>
+                                <li style='text-align: center;'>
+                                    <img src="https://github.com/SuperOxigen.png" alt="" style='border-radius: 100px; height: 200px;'>
+                                    <h3>Alex Dale</h3>
+                                    <p>Jedi</p>
+                                </li>
+                                <li style='text-align: center;'>
+                                    <img src="https://github.com/verandaguy.png" alt="" style='border-radius: 100px; height: 200px;'>
+                                    <h3>Jules Muzer</h3>
+                                    <p>Jedi</p>
+                                </li>
+                                <li style='text-align: center;'>
+                                    <img src="https://github.com/Faeriol.png" alt="" style='border-radius: 100px; height: 200px;'>
+                                    <h3>Max </h3>
+                                    <p>Jedi</p>
+                                </li>
+                                <li style='text-align: center;'>
+                                    <img src="https://github.com/SuperOxigen.png" alt="" style='border-radius: 100px; height: 200px;'>
+                                    <h3>Rodger</h3>
+                                    <p>Yoda</p>
+                                </li>
+                                <li style='text-align: center;'>
+                                    <img src="https://github.com/SuperOxigen.png" alt="" style='border-radius: 100px; height: 200px;'>
+                                    <h3>Xavier</h3>
+                                    <p>Jedi</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                <!-- CTA -->
+                    <section id="cta" class="wrapper style4">
+                        <div class="inner">
+                            <header>
+                                <h2>Contact US</h2>
+                                <p>If you have any questions, please feel free to email us <a href="mailto:info@uocsclub.ca">info@uocsclub.ca</a></p>
+                            </header>
+                        </div>
+                    </section>
