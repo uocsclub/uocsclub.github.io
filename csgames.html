@@ -1,21 +1,63 @@
 ---
 layout: landing
 ---
-<section style='display: flex;'>
-    <img src="images/csgames.jpg" alt=""/>
+<style>
+  #csgames > header {
+    padding: 12em 0 10em 0;
+    background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url("images/csgames.jpg");
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url("images/csgames.jpg");
+    background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url("images/csgames.jpg");
+    background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url("images/csgames.jpg");
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    height: 100vh;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+  }
+
+  #csgames > header > p {
+    text-align: justify;
+    padding: 0 4em;
+  }
+
+  #csgames > header > h1 {
+    font-size: 1.75em;
+  }
+</style>
+<section style='display: flex;' id='csgames'>
+
+{% comment %} </section> {% endcomment %}
+
+{% comment %} <section class="wrapper" style="padding: 6em 3vw 4em 3vw;"> {% endcomment %}
+  <header>
+    <h1>What is CSGames?</h1>
+    <p>
+      The Computer Science Games are a collegiate competition that includes challenges
+      from all aspects of computing.
+      The games are a weekend long thrill ride with logic puzzles, difficult algorithms,
+      intense video game competitions, social activities, and of course, programming.
+      Organized by students from a different university every year, the CS Games are open
+      to all undergraduate students.
+    </p>
+  </header>
 </section>
 
-<section class="wrapper" style="padding: 6em 3vw 4em 3vw;">
-    <h2>What is CSGames?</h2>
-    <p>
-        The Computer Science Games are a collegiate competition that includes challenges
-        from all aspects of computing.
-        The games are a weekend long thrill ride with logic puzzles, difficult algorithms,
-        intense video game competitions, social activities, and of course, programming.
-        Organized by students from a different university every year, the CS Games are open
-        to all undergraduate students.
-    </p>
-</section>
+{% assign stuff = site.data.csgames_team_2018 %}
+
+{{ stuff | inspect }}
 
 <section class="wrapper style3 special">
   <h1>Meet the teams</h1>
@@ -28,7 +70,7 @@ layout: landing
         <p>Team Capitan and Organizer</p>
       </li>
       <li style='text-align: center;'>
-        <img src="https://github.com/abdulwahaab710.png" alt="" style='border-radius: 100px; height: 200px;'>
+        <img src="/images/csgames_2018/Abdulwahaab_Ahmed.png" alt="" style='border-radius: 100px; height: 200px;'>
         <h3>Abdulwahaab Ahmed</h3>
         <p>Organizer</p>
       </li>
@@ -38,7 +80,7 @@ layout: landing
         <p>Organizer</p>
       </li>
       <li style='text-align: center;'>
-        <img src="https://github.com/SuperOxigen.png" alt="" style='border-radius: 100px; height: 200px;'>
+        <img src="/images/csgames_2018/Gabriel_Lalonde.png" alt="" style='border-radius: 100px; height: 200px;'>
         <h3>Gabriel Lalonde</h3>
       </li>
       <li style='text-align: center;'>
@@ -46,7 +88,7 @@ layout: landing
         <h3>Katherine Yee</h3>
       </li>
       <li style='text-align: center;'>
-        <img src="https://github.com/SuperOxigen.png" alt="" style='border-radius: 100px; height: 200px;'>
+        <img src="/images/csgames_2018/Kurt_Bruneau.png" alt="" style='border-radius: 100px; height: 200px;'>
         <h3>Kurt Bruneau</h3>
       </li>
       <li style='text-align: center;'>
@@ -58,12 +100,12 @@ layout: landing
         <h3>Owen Anderson</h3>
       </li>
       <li style='text-align: center;'>
-        <img src="https://github.com/SuperOxigen.png" alt="" style='border-radius: 100px; height: 200px;'>
+        <img src="/images/csgames_2018/Phillip_Williams.png" alt="" style='border-radius: 100px; height: 200px;'>
         <h3>Phillip Williams</h3>
         <p>Organizer</p>
       </li>
       <li style='text-align: center;'>
-        <img src="https://github.com/SuperOxigen.png" alt="" style='border-radius: 100px; height: 200px;'>
+        <img src="/images/csgames_2018/Richard_Hayes.png" alt="" style='border-radius: 100px; height: 200px;'>
         <h3>Richard Hayes</h3>
       </li>
     </ul>
@@ -79,23 +121,23 @@ layout: landing
         <h3>Gabriel Tapuc</h3>
       </li>
       <li style='text-align: center;'>
-        <img src="https://github.com/SuperOxigen.png" alt="" style='border-radius: 100px; height: 200px;'>
+        <img src="/images/csgames_2018/Joseph_Roque.png" alt="" style='border-radius: 100px; height: 200px;'>
         <h3>Joseph Roque</h3>
       </li>
       <li style='text-align: center;'>
-        <img src="https://github.com/SuperOxigen.png" alt="" style='border-radius: 100px; height: 200px;'>
+        <img src="/images/csgames_2018/Kyle_Quintal.png" alt="" style='border-radius: 100px; height: 200px;'>
         <h3>Kyle Quintal</h3>
       </li>
       <li style='text-align: center;'>
-        <img src="https://github.com/SuperOxigen.png" alt="" style='border-radius: 100px; height: 200px;'>
+        <img src="/images/csgames_2018/Leisha_Burford.png" alt="" style='border-radius: 100px; height: 200px;'>
         <h3>Leisha Burford</h3>
       </li>
       <li style='text-align: center;'>
-        <img src="https://github.com/SuperOxigen.png" alt="" style='border-radius: 100px; height: 200px;'>
+        <img src="/images/csgames_2018/Nicolas_Znamenski.png" alt="" style='border-radius: 100px; height: 200px;'>
         <h3>Nicolas Znamenski</h3>
       </li>
       <li style='text-align: center;'>
-        <img src="https://github.com/SuperOxigen.png" alt="" style='border-radius: 100px; height: 200px;'>
+        <img src="/images/csgames_2018/Nour_Fanous.png" alt="" style='border-radius: 100px; height: 200px;'>
         <h3>Nour Fanous</h3>
       </li>
       <li style='text-align: center;'>
@@ -103,11 +145,11 @@ layout: landing
         <h3>Qasim Ahmed</h3>
       </li>
       <li style='text-align: center;'>
-        <img src="https://github.com/SuperOxigen.png" alt="" style='border-radius: 100px; height: 200px;'>
+        <img src="/images/csgames_2018/Qufei_Chen.png" alt="" style='border-radius: 100px; height: 200px;'>
         <h3>Qufei Chen</h3>
       </li>
       <li style='text-align: center;'>
-        <img src="https://github.com/SuperOxigen.png" alt="" style='border-radius: 100px; height: 200px;'>
+        <img src="/images/csgames_2018/Willem_Kowel.png" alt="" style='border-radius: 100px; height: 200px;'>
         <h3>Willem Kowel</h3>
       </li>
     </ul>
@@ -119,12 +161,14 @@ layout: landing
   <div class="inner">
     <ul class="features">
       <li style='text-align: center;'>
-        <img src="https://github.com/SuperOxigen.png" alt="" style='border-radius: 100px; height: 200px;'>
-        <h3>Company name here</h3>
+        <div>
+          <img src="https://www.softwaresecured.com/wp-content/themes/softwaresecured/img/software-secured-logo.svg" alt="" style='max-width: 200px; height:200px;'>
+        </div>
+        <h3>Software Secured</h3>
       </li>
       <li style='text-align: center;'>
-        <img src="https://github.com/SuperOxigen.png" alt="" style='border-radius: 100px; height: 200px;'>
-        <h3>Company name here</h3>
+        <img src="http://genatec.com/wp-content/themes/genatec/images/Logo-genatec-V5.svg" alt="" style='max-width: 200px; height:200px;'>
+        <h3>Genatec</h3>
       </li>
     </ul>
   </div>
