@@ -37,10 +37,28 @@ layout: landing
     font-size: 1.75em;
   }
 
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+    margin-left: 4vw;
+    margin-right: 4vw;
+  }
+
+  .video-container iframe,
+  .video-container object,
+  .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
 </style>
 <section style='display: flex;' id='csgames'>
 
-{% comment %} </section> {% endcomment %}
+  {% comment %} </section> {% endcomment %}
 
 {% comment %} <section class="wrapper" style="padding: 6em 3vw 4em 3vw;"> {% endcomment %}
   <header>
@@ -58,7 +76,9 @@ layout: landing
 
 <section class="wrapper style2" style="text-align: center;">
   <h2 style="text-transform: none;">uOttawa CSGames 2018 Flashout</h2>
-  <iframe width="800" height="600" src="https://www.youtube.com/embed/VSivY4trCqs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <div class="video-container">
+    <iframe width="800" height="600" src="https://www.youtube.com/embed/VSivY4trCqs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
 </section>
 
 <section class="wrapper style3 special">
