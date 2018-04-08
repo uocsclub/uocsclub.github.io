@@ -28,6 +28,32 @@ layout: landing
     justify-content: center;
   }
 
+  #sponsors {
+    padding: 12em 0 10em 0;
+    background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url("images/csgames_2018/t-shirts_back.jpg");
+    background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url("images/csgames_2018/t-shirts_back.jpg");
+    background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url("images/csgames_2018/t-shirts_back.jpg");
+    background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url("images/csgames_2018/t-shirts_back.jpg");
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    height: 20vh;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+  }
+
   #csgames > header > p {
     text-align: justify;
     padding: 0 4em;
@@ -55,6 +81,10 @@ layout: landing
     height: 100%;
   }
 
+  @media screen and (max-width: 980px)
+  .sponsors-wrapper {
+      padding: 4em 3em 2em 3em;
+  }
 </style>
 <section style='display: flex;' id='csgames'>
   <header>
@@ -173,16 +203,37 @@ layout: landing
     </ul>
   </div>
 </section>
-
 <section class="wrapper style3 special">
-  <h2>Our amazing Sponsors</h2>
+  <h3>Team mentors</h3>
+  <div class="inner">
+    <ul class="features">
+      <li style='text-align: center;'>
+        <img src="/images/csgames_2018/penguin.svg" alt="" style='border-radius: 100px; height: 200px;'>
+        <h3>Ashwin Panchapakesan</h3>
+        <p>Team mentor</p>
+      </li>
+      <li style='text-align: center;'>
+        <img src="/images/csgames_2018/penguin.svg" alt="" style='border-radius: 100px; height: 200px;'>
+        <h3>Ian MacDonald</h3>
+        <p>Team mentor</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="sponsors-wrapper style3 special" style="">
+  <div id="sponsors">
+    <h2 style="font-size: 5vh;">Our amazing Sponsors</h2>
+  </div>
+</section>
+<section class="wrapper style3 special">
   <div class="inner">
     <ul class="features">
       <li style='text-align: center;'>
         <div>
           <img src="images/csgames_2018/sponsors_logos/software-secured.svg" alt="" style='max-width: 200px; height:200px;'>
         </div>
-        <h3><a href="https://www.softwaresecured.com/">Software Secured</a></h3>
+        <h3><a href="https://www.softwaresecured.com/" target="_blank">Software Secured</a></h3>
       </li>
       <li style='text-align: center;'>
         <img src="images/csgames_2018/sponsors_logos/genatec.svg" alt="" style='max-width: 200px; height:200px;'>
