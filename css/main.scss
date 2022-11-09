@@ -490,16 +490,12 @@ $baseurl: '{{ site.baseurl }}/images';
 			}
 		}
 
-		&.style1 {
-			color: _palette(accent2, bg);
+		&.fa-discord {
+			color: white;//_palette(accent2, bg);
 		}
 
-		&.style2 {
-			color: _palette(accent3, bg);
-		}
-
-		&.style3 {
-			color: _palette(accent4, bg);
+		&.fa-github {
+			color: white;//_palette(accent3, bg);
 		}
 	}
 
