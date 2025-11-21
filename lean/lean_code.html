@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-lean/dist/lean.min.js"></script>
+    <script type="text/javascript">
+		async function loadLean() {
+			const response = await fetch("lean_code_and_coffee.lean");
+			const text = await response.text();
+			leanCode.innerHTML = text; // pray no XSS
+        	hljs.highlightAll();
+		}
+		loadLean();
+    </script>
+	<style>
+		body, pre, code { margin: 0; }
+	</style>
+</head>
+
+<body>
+	<div style="padding: 20px; background: #303030;">
+		<a style="color: grey;" href="lean_code_and_coffee.lean">Download lean_code_and_coffee.lean</a>
+	</div>
+    <pre><code class="language-lean" id="leanCode"></code></pre>
+</body>
+</html>
