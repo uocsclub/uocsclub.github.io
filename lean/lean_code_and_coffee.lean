@@ -27,12 +27,12 @@ inductive Nat' where
 deriving Repr
 -- `deriving Repr` just tells Lean how to display it
 
-def naught  : Nat' := Nat'.zero
-def yan     : Nat' := Nat'.succ naught
-def tan     : Nat' := Nat'.succ yan
-def tethera : Nat' := Nat'.succ tan
+def naught : Nat' := Nat'.zero
+def yan    : Nat' := naught.succ
+def tan    : Nat' := yan.succ
+def tether : Nat' := tan.succ
 
-#eval tethera
+#eval tether
 
 -- This is a bit unwieldy, it would be nice if we could just use Arabic numerals
 
@@ -56,8 +56,8 @@ instance : OfNat Nat' n where
 
 -- Now, it would be nice if we could format it nicely
 def Nat'.toNat : Nat' → Nat
-  | zero    => 0
-  | succ n' => 1 + n'.toNat
+  | zero   => 0
+  | succ n => 1 + n.toNat
 
 -- Tell Lean that, when stringifying Nat', first transform it into a Nat, then stringify *that*
 instance : ToString Nat' where
@@ -66,7 +66,7 @@ instance : ToString Nat' where
 -- We can use s! to format a string, with the things inside {} being evaluated
 -- #eval s!"Three is actually {(3 : Nat')}!"
 -- if we leave off the `: Nat'`, Lean just assumes we're using a normal Nat.
-#eval s!"Three is actually {tethera}!"
+#eval s!"Three is actually {tether}!"
 
 -- Addition
 /-
@@ -82,25 +82,25 @@ def Nat'.plus : Nat' → Nat' → Nat'
   | zero,   m => m
   | succ n, m => (n.plus m).succ
 
-#eval s!"Three plus three is {tethera.plus tethera}"
+#eval s!"Three plus three is {tether.plus tether}"
 
 -- Tell Lean to interpret Nat' + Nat' as Nat'.plus
 instance : Add Nat' where
   add := Nat'.plus
 
-#eval s!"Three plus three is {tethera + tethera}"
+#eval s!"Three plus three is {tether + tether}"
 
 -- Multiplication
 def Nat'.mul : Nat' → Nat' → Nat'
   -- 0 * anything = 0
   | zero,    _ => Nat'.zero
-  -- (1+n') * m = m + n'*m
+  -- (1+n) * m = m + n*m
   | succ n, m => m + n.mul m
 
 instance : Mul Nat' where
   mul := Nat'.mul
 
-#eval s!"Three times three is {tethera * tethera}"
+#eval s!"Three times three is {tether * tether}"
 
 -- What about division? Now this one is harder.
 -- We could define division by two something like this:
@@ -110,7 +110,7 @@ def Nat'.divTwo' : Nat' -> Nat'
     match n with
     | zero    => Nat'.zero
     | succ n' => n'.divTwo'.succ
-#eval s!"9/2 is {(tethera * tethera).divTwo'}"
+#eval s!"9/2 is {(tether * tether).divTwo'}"
 -- But it's not very elegant.
 
 
