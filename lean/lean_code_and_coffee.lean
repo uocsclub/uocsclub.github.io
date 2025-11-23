@@ -12,7 +12,8 @@ def greet (name : String) : String :=
   -- String.append (String.append "Hello, " name) "!"
   -- but Lean transforms `<string>.append x` into `String.append <string> x`
   -- and this is true for every class
-  ("Hello, ".append name).append "!"
+  "Hello, ".append $ name.append "!"
+  -- `f $ g x` is `f (g x)`
 
 #eval greet world
 
@@ -40,7 +41,7 @@ def tethera : Nat' := Nat'.succ tan
 def natToNat' (n : Nat) : Nat' :=
   match n with
   | 0     => Nat'.zero
-  | k + 1 => Nat'.succ $ natToNat' k -- `f $ g x` is `f (g x)`
+  | k + 1 => Nat'.succ $ natToNat' k
 -/
 -- We can write this a bit more succinctly:
 def natToNat' : Nat → Nat'
@@ -55,8 +56,8 @@ instance : OfNat Nat' n where
 
 -- Now, it would be nice if we could format it nicely
 def Nat'.toNat : Nat' → Nat
-  | Nat'.zero    => 0
-  | Nat'.succ n' => 1 + n'.toNat
+  | zero    => 0
+  | succ n' => 1 + n'.toNat
 
 -- Tell Lean that, when stringifying Nat', first transform it into a Nat, then stringify *that*
 instance : ToString Nat' where
@@ -72,14 +73,14 @@ instance : ToString Nat' where
 def Nat'.plus (n : Nat') (m : Nat') : Nat' :=
   match n with
   -- 0+m = m
-  | Nat'.zero    => m
+  | zero    => m
   -- (1+n')+m = 1+(n'+m)
-  | Nat'.succ n' => (n'.plus m).succ
+  | succ n' => (n'.plus m).succ
 -/
 -- Again, we can condense this:
 def Nat'.plus : Nat' → Nat' → Nat'
-  | Nat'.zero,    m => m
-  | Nat'.succ n', m => (n'.plus m).succ
+  | zero,   m => m
+  | succ n, m => (n.plus m).succ
 
 #eval s!"Three plus three is {tethera.plus tethera}"
 
@@ -92,14 +93,25 @@ instance : Add Nat' where
 -- Multiplication
 def Nat'.mul : Nat' → Nat' → Nat'
   -- 0 * anything = 0
-  | Nat'.zero,    _ => 0
+  | zero,    _ => Nat'.zero
   -- (1+n') * m = m + n'*m
-  | Nat'.succ n', m => m + n'.mul m
+  | succ n, m => m + n.mul m
 
 instance : Mul Nat' where
   mul := Nat'.mul
 
 #eval s!"Three times three is {tethera * tethera}"
+
+-- What about division? Now this one is harder.
+-- We could define division by two something like this:
+def Nat'.divTwo' : Nat' -> Nat'
+  | zero   => Nat'.zero
+  | succ n =>
+    match n with
+    | zero    => Nat'.zero
+    | succ n' => n'.divTwo'.succ
+#eval s!"9/2 is {(tethera * tethera).divTwo'}"
+-- But it's not very elegant.
 
 
 -- A list of natural numbers is either nil, or a Nat' appended to another list
@@ -113,8 +125,8 @@ def myList : NatList :=
   NatList.cons 3 $ NatList.cons 2 $ NatList.cons 1 NatList.nil
 
 def NatList.length : NatList → Nat'
-  | NatList.cons _ ns => 1 + ns.length
-  | NatList.nil       => 0
+  | nil       => 0
+  | cons _ ns => 1 + ns.length
 -- Note that Lean doesn't let us recurse infinitely
 
 #eval s!"My list's length is {myList.length}"
@@ -126,8 +138,8 @@ inductive IntList where
 deriving Repr
 
 def IntList.length : IntList → Nat'
-  | IntList.cons _ is => 1 + is.length
-  | IntList.nil       => 0
+  | cons _ is => 1 + is.length
+  | nil       => 0
 
 
 inductive FloatList where
@@ -136,8 +148,8 @@ inductive FloatList where
 deriving Repr
 
 def FloatList.length : FloatList → Nat'
-  | FloatList.cons _ is => 1 + is.length
-  | FloatList.nil       => 0
+  | cons _ is => 1 + is.length
+  | nil       => 0
 
 
 -- List of any type. Greek letters are conventionally used to mean "any type". (α can be typed with \a).
@@ -156,8 +168,8 @@ def myBoolList : List' Bool :=
 -- #eval List'.cons 3.14 $ List'.cons "test" List'.nil
 
 def List'.length : List' α → Nat'
-  | List'.cons _ is => 1 + is.length
-  | List'.nil       => 0
+  | cons _ is => 1 + is.length
+  | nil       => 0
 
 #eval s!"My boolean list's length is {myBoolList.length}"
 
@@ -166,8 +178,8 @@ def List'.length : List' α → Nat'
 -- This doesn't work:
 /-
 def List'.dot : List' Nat' → List' Nat' → Nat'
-  | List'.nil,        List'.nil => 0
-  | List'.cons n1 ls, List'.cons n2 ms => n1*n2 + ls.dot ms
+  | nil,       nil => 0
+  | cons n ns, cons m ms => n*m + ns.dot ms
 -/
 -- Lean complains, saying that we haven't said what to do if the lists are different lengths.
 -- And this is a good point, since it makes no sense to dot two lists of different lengths!
@@ -192,8 +204,8 @@ def w : Vec Nat' 3 := Vec.cons 2 $ Vec.cons 5 $ Vec.cons 1 Vec.nil
 -- Now, we can ensure that both vectors have the same length
 def Vec.dot (u : Vec Nat' l) (v : Vec Nat' l) : Nat' :=
   match l, u, v with
-  | 0,           Vec.nil,        Vec.nil        => 0
-  | Nat'.succ _, Vec.cons n1 us, Vec.cons n2 vs => n1*n2 + us.dot vs
+  | Nat'.zero,   nil,        nil        => 0
+  | Nat'.succ _, cons n1 us, cons n2 vs => n1*n2 + us.dot vs
 -- If you're wondering where the `l : Nat` comes from, Lean takes it as an implicit parameter.
 
 #eval s!"(4, 2).(10, 3) = {u.dot v}"
@@ -241,8 +253,8 @@ theorem modus_ponens (hPQ : P → Q) (hP : P) : Q := hPQ hP
 -- P → Q → S parameterizes as P → (Q → S)
 -- This is analogous to currying:
 -- Each function takes exactly one argument. A two-argument function takes in an argument, and returns a function that takes in a "second" argument before returning its result.
-example (hpqs : P → Q → S) (hP : P) (hQ : Q) : S :=
-  hpqs hP hQ
+example (hPQS : P → Q → S) (hP : P) (hQ : Q) : S :=
+  hPQS hP hQ
 
 -- We can always provide a witness for the statement `True`:
 -- There are no eliminators since you can't do anything useful with information you can always construct.
@@ -264,21 +276,22 @@ theorem contrapositive (hPQ : P → Q) (hnQ : ¬Q) : ¬P :=
 -- Just like how `True` only provides a single constructor `trivial` and no eliminator, `False` provides no constructor and a single eliminator `absurd`, which allows you to prove anything (principle of explosion)
 theorem explode (hP : P) (hnP : ¬P) : Q := absurd hP hnP
 
--- To prove an if and only if, we need to show that P implies Q, and that Q implies P.
-theorem and_swap' : P ∧ Q ↔ Q ∧ P :=
-  ⟨ fun h => ⟨h.right, h.left⟩, fun h => ⟨h.right, h.left⟩ ⟩
-
 -- The law of the excluded middle states that for any proposition P, P is either true or false.
 -- theorem lem : P ∨ ¬P := _
 -- In constructive type theory, this amounts to saying "give me any P, and I can give you either a proof of P, or a proof of ¬P". However, this is impossible (for example, the halting problem says it's impossible to decide in a finite amount of time whether an arbitrary Turing machine halts or not. Thus, you can't provide a proof that it halts, or a proof that it doesn't.)
 -- Interestingly, you *can* prove ¬¬lem.
+
+-- To prove an if and only if, we need to show that P implies Q, and that Q implies P.
+theorem and_swap' : P ∧ Q ↔ Q ∧ P :=
+  ⟨ fun h => ⟨h.right, h.left⟩, fun h => ⟨h.right, h.left⟩ ⟩
 
 -- `have` is one way of introducing a local binding
 theorem discrete' : ((P → Q) → (Q → S)) ↔ (Q → S) :=
   -- ((P → Q) → (Q → S))  →  (Q → S)
   have forwards (h : (P → Q) → (Q → S)) (hQ : Q) : S :=
     have hPQ (_ : P) : Q := hQ
-    h hPQ hQ
+    have hQS : Q → S := h hPQ
+    hQS hQ
   -- (Q → S)  →  ((P → Q) → (Q → S))
   have backwards (hQS : Q → S) (_ : P → Q) (hQ : Q) : S :=
       hQS hQ
@@ -471,6 +484,9 @@ theorem EvenOrOdd : ∀ n : Nat', Even n ∨ Odd n := by
       intro hOdd
       apply Or.inl
       exact (succOddIsEven hOdd)
+
+-- Let's think about what we've done here. This program doesn't only prove that every number is either even or odd,
+-- it also divides the number in two! So, it both proves something useful and *does* something useful.
 
 -- To have some fun learning tactics, try the Natural Numbers Game: https://adam.math.hhu.de/#/g/leanprover-community/nng4
 -- Or, try the Lean Intro to Logic: https://adam.math.hhu.de/#/g/trequetrum/lean4game-logic
