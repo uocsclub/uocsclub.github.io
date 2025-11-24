@@ -116,7 +116,9 @@ def Nat'.divTwo' : Nat' -> Nat'
 
 -- A list of natural numbers is either nil, or a Nat' appended to another list
 inductive NatList where
+  -- the empty list
   | nil  : NatList
+  -- cons = append, we append a Nat' onto a NatList to get a new NatList
   | cons : Nat' → NatList → NatList
 deriving Repr
 
@@ -193,12 +195,13 @@ def List'.dot : List' Nat' → List' Nat' → Nat'
 inductive Vec (α : Type u) : Nat' → Type u where
   | nil  : Vec α 0
   | cons : α → Vec α n → Vec α n.succ
+deriving Repr
 
 -- u has length 2
 def u : Vec Nat' 2 := Vec.cons 4 $ Vec.cons 2 Vec.nil
 -- Doesn't work:
 -- def v : Vec Nat' 2 := Vec.cons 1 $ Vec.cons 10 $ Vec.cons 3 Vec.nil
-def v : Vec Nat' 2 := Vec.cons 10 $ Vec.cons 3 Vec.nil
+def v : Vec Nat' 2 := Vec.cons 9 $ Vec.cons 3 Vec.nil
 def w : Vec Nat' 3 := Vec.cons 2 $ Vec.cons 5 $ Vec.cons 1 Vec.nil
 
 -- Now, we can ensure that both vectors have the same length
@@ -208,7 +211,7 @@ def Vec.dot (u : Vec Nat' l) (v : Vec Nat' l) : Nat' :=
   | Nat'.succ _, cons n1 us, cons n2 vs => n1*n2 + us.dot vs
 -- If you're wondering where the `l : Nat` comes from, Lean takes it as an implicit parameter.
 
-#eval s!"(4, 2).(10, 3) = {u.dot v}"
+#eval s!"(4, 2).(9, 3) = {u.dot v}"
 -- Doesn't work:
 -- #eval s!"(4, 2).(2, 5, 1) = {u.dot w}"
 
