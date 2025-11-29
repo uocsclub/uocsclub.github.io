@@ -37,29 +37,9 @@ When creating a new page, please use the following when adding files.
 If you are making a new core page of our site (like a Contact Us, Events,
 Calender, Join, etc.) then remember to add the main pages navbar.
 
-More guidelines will become available once we have setup our templating
-engine.
+Here are some useful locations to save you time searching for them:
 
-## Testing Your Site Locally
+- `/css/main.scss`: The main CSS file
+- `/_layouts/`: Page templates
+- `/_includes/`: Header, footer, navbar, etc.
 
-Currently, our site is just basic http server. As long as your computer
-can run a web server, you can test the site. Here are a few examples.
-
-If you have Python 3
-
-```bash
-cd uocsclub.github.io
-python -m http.server 8000
-```
-
-If you have Python 2
-
-```bash
-cd uocsclub.github.io
-python -m SimpleHTTPServer 8000
-```
-
-Then check out your [local server](http://localhost:8000).
-
-We may switch to using a templating engine for our site, if needed. When
-we do, we will update this page.
