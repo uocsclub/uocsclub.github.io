@@ -14,23 +14,30 @@ subtitle: Raymond Smullyan
 
 <section>
 	<h3>Birds:</h3>
-	<ul>
 	<table>
-		<tr> <td>Mockingbird</td> <td>Mx = xx</td> </tr>
+		<tr> <td>Mockingbird</td> <td>Mx = xx<br>
+			<i>In a forest with a Mockingbird which satisfies the composition condition, every bird A is fond of (A∘M)(A∘M)</i>
+		</td> </tr>
 		<tr> <td>Kestrel</td> <td>Kxy = x</td> </tr>
 		<tr> <td>Identity</td> <td>Ix = x</td> </tr>
 		<tr> <td>Lark</td> <td>Lxy = x(yy)<br>
-			<i>NB: in a forest with a Lark, every bird A is fond of (LA)(LA)</i>
+			<i>In a forest with a Lark, every bird A is fond of (LA)(LA)</i>
 		</td> </tr>
-		<tr> <td>Bluebird</td> <td>Bxyz = x(yz), B = x∘y</td> </tr>
-		<tr> <td>Dove</td> <td>Dxyzw = xy(zw), D = (xy)∘z</td> </tr>
-		<tr> <td>Blackbird</td> <td>B₁xyzw = x(yzw), B₁ = x∘(yz)</td> </tr>
-		<tr> <td>Eagle</td> <td>Exyzwv = xy(zwv), E = (xy)∘(zw)</td> </tr>
-		<tr> <td>Bunting</td> <td>B₂xyzwv = x(yzwv)</td> </tr>
-		<tr> <td>Dickcissel</td> <td>D₁xyzwv = xyz(wv)</td> </tr>
-		<tr> <td>Becard</td> <td>B₃xyzw = x(y(zw)),  B₃xyz = x∘y∘z</td> </tr>
 	</table>
-	<p>(for all birds x, y, z, w)</p>
+
+	<h4>Composition Birds:</h4>
+	<table>
+		<tr> <th>Name</th>       <th>Behaviour</th>                          <th>Minimal 🅱️ form</th>    <th>Roadkill form</th> </tr>
+		<tr> <td>Bluebird</td>   <td>Bxyz = x(yz), Bxy = x∘y</td>            <td>B</td>                  <td>B¹</td>            </tr>
+		<tr> <td>Dove</td>       <td>Dxyzw = xy(zw)</td>                     <td>BB</td>                 <td>B²</td>            </tr>
+		<tr> <td>Blackbird</td>  <td>B₁xyzw = x(yzw)</td>                    <td>BBB</td>                <td>B³</td>            </tr>
+		<tr> <td>Eagle</td>      <td>Exyzwv = xy(zwv)</td>                   <td>B(BBB)</td>             <td>B⁷ = B¹¹</td>      </tr>
+		<tr> <td>Bunting</td>    <td>B₂xyzwv = x(yzwv)</td>                  <td>B(BBB)B or BB(BBB)</td> <td>B⁸ = B¹²</td>      </tr>
+		<tr> <td>Dickcissel</td> <td>D₁xyzwv = xyz(wv)</td>                  <td>B(BB)</td>              <td>B⁴</td>            </tr>
+		<tr> <td>Becard</td>     <td>B₃xyzw = x(y(zw)), B₃xyz = x∘y∘z</td>   <td>B(BB)B</td>             <td>B⁵</td>            </tr>
+		<tr> <td>Dovekie</td>    <td>D₂xyzwv = x(yz)(wv)</td>                <td>?</td>                  <td>?</td>             </tr>
+		<tr> <td>Bald Eagle</td> <td>Êxy₁y₂y₃z₁z₂z₃ = x(y₁y₂y₃)(z₁z₂z₃)</td> <td>?</td>                  <td>?</td>             </tr>
+	</table>
 </section>
 
 <section>
