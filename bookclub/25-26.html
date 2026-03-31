@@ -23,9 +23,10 @@ subtitle: Raymond Smullyan
 		<tr> <td>Lark</td> <td>Lxy = x(yy)<br>
 			<i>In a forest with a Lark, every bird A is fond of (LA)(LA)</i>
 		</td> </tr>
+		<tr> <td>Warbler</td> <td>Wxy = xyy</td> </tr>
 	</table>
 
-	<h4>Composition Birds:</h4>
+	<h4>Compositors</h4>
 	<table>
 		<tr> <th>Name</th>       <th>Behaviour</th>                          <th>Minimal 🅱️ form</th>    <th>Roadkill form</th> </tr>
 		<tr> <td>Bluebird</td>   <td>Bxyz = x(yz), Bxy = x∘y</td>            <td>B</td>                  <td>B¹</td>            </tr>
@@ -38,7 +39,20 @@ subtitle: Raymond Smullyan
 		<tr> <td>Dovekie</td>    <td>D₂xyzwv = x(yz)(wv)</td>                <td>?</td>                  <td>?</td>             </tr>
 		<tr> <td>Bald Eagle</td> <td>Êxy₁y₂y₃z₁z₂z₃ = x(y₁y₂y₃)(z₁z₂z₃)</td> <td>?</td>                  <td>?</td>             </tr>
 	</table>
+
+	<h4>Permuting birds</h4>
+	<table>
+			<tr> <th>Name</th>     <th>Behaviour</th>  <th>Notes</th>                         </tr>
+			<tr> <td>Cardinal</td> <td>Cxyz = xyz</td> <td>Swaps arguments</td>               </tr>
+			<tr> <td>Thrush</td>   <td>Txy = yx</td>   <td>Backward function application</td> </tr>
+			<tr> <td>Robin</td>    <td>Rxyz = yzx</td> <td>Rotates</td>                       </tr>
+	</table>
+
+	<a href="https://combinatorylogic.com/links.html" target="blank">Birds in programming languages and other combinator resources</a>
 </section>
+
+<br>
+<br>
 
 <section>
 	<h3>Definitions:</h3>
@@ -55,5 +69,6 @@ subtitle: Raymond Smullyan
 		<tr> <td>Fixation</td> <td>A is fixated on B if for every bird x, Ax = B</td> </tr>
 		<tr> <td>Hopelessly egocentric</td> <td>A is hopelessly egocentric if it is fixated on itself (ie for every bird x, Ax = A)</td> </tr>
 		<tr> <td>Left cancellation law for kestrels</td> <td>if Kx = Ky then x = y</td> </tr>
+		<tr> <td>Commute</td> <td>x and y commute if xy = yx</td> </tr>
 	</table>
 </section>
